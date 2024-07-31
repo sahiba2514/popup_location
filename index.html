@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location-based Authentication</title>
+</head>
+<body>
+  <h1>Location-based Authentication</h1>
+  <button onclick="getLocation()">Get Location</button>
+  <script>
+   
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("wrong location.");
+      }
+    }
+
+   
+    function showPosition(position) {
+      var location = prompt("Please enter your location:");
+      if (location.toLowerCase() === "punjab" || location.toLowerCase() === "haryana" || location.toLowerCase() === "chandigarh") {
+       
+        var username = prompt("Please enter your username:");
+        var password = prompt("Please enter your password:");
+        if (username === "Sahiba" && password === "2514") {
+         
+          window.location.href = "https://www.google.com/maps/place/Punjab,+India/@30.9166667,75.4166667,8z/data=!3m1!4b1!4m5!3m4!1s0x391964aa569e7355:0x8fbd2700db5f3bc!8m2!3d30.9166667!4d75.4166667";
+        } else {
+          alert("Wrong credentials");
+        }
+      } else {
+        alert("Access denied");
+      }
+    }
+  </script>
+</body>
+</html>
